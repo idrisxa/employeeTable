@@ -1,10 +1,7 @@
 <nav class="navbar navbar-light bg-primary">
     <div class="container-fluid">
         <h1 style="color: aliceblue;">Employee Table</h1>
-        <div class="d-flex">
-            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">Add
-                Employee</button>
-        </div>
+        
 
     </div>
 </nav>
@@ -27,7 +24,8 @@
             <td>{{row.lastName}}</td>
             <td>{{row.salary}}</td>
             <td>
-                <button class="btn btn-info">Edit</button>
+                <button (click)="onEdit(row)" class="btn btn-info" type="button" data-bs-toggle="modal"
+                    data-bs-target="#exampleModal">Edit</button>
                 <button (click)="deleteEmployee(row)" class="btn btn-danger mx-3">Delete</button>
             </td>
         </tr>
@@ -42,39 +40,53 @@
 
 <!-- Modal -->
 <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
-    aria-hidden="true"data-backdrop="static" data-keyword="false">
-    <div class="modal-dialog" >
+    aria-hidden="true">
+    <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
                 <h5 class="modal-title" id="exampleModalLabel">Employee Details</h5>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
             </div>
             <div class="modal-body">
                 <form [formGroup]="formValue">
+                    <!-- <div class="form-group">
+                        <label for="exampleInputId">Employee ID</label>
+                        <input type="text" formControlName="id" class="form-control" id="exampleInputId"
+                            aria-describedby="emailHelp" placeholder="002">
+                    </div> -->
                     <div class="form-group">
-                        <label for="exampleInputEmail1">First Name</label>
-                        <input type="text" formControlName="firstName" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"
-                            placeholder="John">
+                        <label for="exampleInputFirstName">First Name</label>
+                        <input type="text" formControlName="firstName" class="form-control" id="exampleInputfirstName"
+                            aria-describedby="emailHelp" placeholder="John">
                     </div>
                     <div class="form-group">
-                        <label for="exampleInputPassword1">Last Name</label>
-                        <input type="text" formControlName="lastName" class="form-control" id="exampleInputPassword1" placeholder="Doe">
+                        <label for="exampleInputLastName">Last Name</label>
+                        <input type="text" formControlName="lastName" class="form-control" id="exampleInputLastName"
+                            placeholder="Doe">
                     </div>
                     <div class="form-group">
-                        <label for="exampleInputPassword1">Salary</label>
-                        <input type="text" formControlName="salary" class="form-control" id="exampleInputPassword1" placeholder="Enter salary">
+                        <label for="exampleInputSalary">Salary</label>
+                        <input type="text" formControlName="salary" class="form-control" id="exampleInputSalary"
+                            placeholder="Enter salary">
                     </div>
-                    
+
+
                 </form>
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                <button type="button" class="btn btn-primary">Add</button>
+                <button type="button" id="cancel" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                <button type="button" *ngIf="showAdd" (click)="postEmployeeDetails()" class="btn btn-primary">Add</button>
+                <button type="button" *ngIf="showUpdate" (click)="updateEmployeeDetails()" class="btn btn-primary">Update</button>
             </div>
         </div>
     </div>
+</div>
+
+<div class="d-flex">
+    <button (click) = "clickAddEmployee()" type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">Add
+        Employee</button>
 </div>
 
 
@@ -121,7 +133,7 @@
   
   <button class="btn btn-lg btn-outline-primary" (click)="open(content)">Launch demo modal</button> -->
 
-<form [formGroup]="formValue">
+<!-- <form [formGroup]="formValue">
     <div class="form-group">
         <label for="exampleInputId">Employee ID</label>
         <input type="text" formControlName="id" class="form-control" id="exampleInputId" aria-describedby="emailHelp"
@@ -146,4 +158,4 @@
 </form>
 
 <button type="button" id="cancel" class="btn btn-secondary" data-dismiss="modal">Close</button>
-<button type="button" (click)="postEmployeeDetails()" class="btn btn-primary">Add</button>
+<button type="button" (click)="postEmployeeDetails()" class="btn btn-primary">Add</button> -->

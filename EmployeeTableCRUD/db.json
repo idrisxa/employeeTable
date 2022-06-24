@@ -1,12 +1,6 @@
 {
   "posts": [
     {
-      "id": 2,
-      "firstName": "Jones",
-      "lastName": "Jones",
-      "salary": "100000"
-    },
-    {
       "id": 3,
       "firstName": "Data",
       "lastName": "kjkwb",
@@ -29,6 +23,18 @@
       "firstName": "Dami",
       "lastName": "Obasa",
       "salary": "62716"
+    },
+    {
+      "id": 8,
+      "firstName": "dewd",
+      "lastName": "wedw",
+      "salary": "232"
+    },
+    {
+      "id": 9,
+      "firstName": "mike",
+      "lastName": "lowry",
+      "salary": "90000"
     }
   ],
   "comments": [],
