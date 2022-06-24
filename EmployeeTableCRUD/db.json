@@ -1,18 +1,37 @@
 {
   "posts": [
     {
-      "id": 1,
-      "title": "json-server",
-      "author": "typicode"
-    }
-  ],
-  "comments": [
+      "id": 2,
+      "firstName": "Jones",
+      "lastName": "Jones",
+      "salary": "100000"
+    },
     {
-      "id": 1,
-      "body": "some comment",
-      "postId": 1
+      "id": 3,
+      "firstName": "Data",
+      "lastName": "kjkwb",
+      "salary": "70,000"
+    },
+    {
+      "id": 5,
+      "firstName": "Idris",
+      "lastName": "Hai",
+      "salary": "7826176868"
+    },
+    {
+      "id": 6,
+      "firstName": "Yjing",
+      "lastName": "ipid",
+      "salary": "797200"
+    },
+    {
+      "id": 7,
+      "firstName": "Dami",
+      "lastName": "Obasa",
+      "salary": "62716"
     }
   ],
+  "comments": [],
   "profile": {
     "name": "typicode"
   }

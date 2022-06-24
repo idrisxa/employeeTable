@@ -12,6 +12,7 @@
 <table class="table mt-3">
     <thead>
         <tr>
+            <th scope="col">Employee ID</th>
             <th scope="col">First Name</th>
             <th scope="col">Last Name</th>
             <th scope="col">Salary</th>
@@ -20,13 +21,14 @@
         </tr>
     </thead>
     <tbody>
-        <tr>
-            <td>Sashi</td>
-            <td>Yadav</td>
-            <td>$ 50,000</td>
+        <tr *ngFor="let row of employeeData">
+            <td>{{row.id}}</td>
+            <td>{{row.firstName}}</td>
+            <td>{{row.lastName}}</td>
+            <td>{{row.salary}}</td>
             <td>
                 <button class="btn btn-info">Edit</button>
-                <button class="btn btn-danger mx-3">Delete</button>
+                <button (click)="deleteEmployee(row)" class="btn btn-danger mx-3">Delete</button>
             </td>
         </tr>
     </tbody>
@@ -40,8 +42,8 @@
 
 <!-- Modal -->
 <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
-    aria-hidden="true">
-    <div class="modal-dialog" role="document">
+    aria-hidden="true"data-backdrop="static" data-keyword="false">
+    <div class="modal-dialog" >
         <div class="modal-content">
             <div class="modal-header">
                 <h5 class="modal-title" id="exampleModalLabel">Employee Details</h5>
@@ -50,7 +52,7 @@
                 </button>
             </div>
             <div class="modal-body">
-                <!-- <form [formGroup]="formValue">
+                <form [formGroup]="formValue">
                     <div class="form-group">
                         <label for="exampleInputEmail1">First Name</label>
                         <input type="text" formControlName="firstName" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"
@@ -65,7 +67,7 @@
                         <input type="text" formControlName="salary" class="form-control" id="exampleInputPassword1" placeholder="Enter salary">
                     </div>
                     
-                </form> -->
+                </form>
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
@@ -119,19 +121,29 @@
   
   <button class="btn btn-lg btn-outline-primary" (click)="open(content)">Launch demo modal</button> -->
 
-  <form [formGroup]="formValue">
+<form [formGroup]="formValue">
     <div class="form-group">
-        <label for="exampleInputEmail1">First Name</label>
-        <input type="text" formControlName="firstName" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"
-            placeholder="John">
+        <label for="exampleInputId">Employee ID</label>
+        <input type="text" formControlName="id" class="form-control" id="exampleInputId" aria-describedby="emailHelp"
+            placeholder="002">
     </div>
     <div class="form-group">
-        <label for="exampleInputPassword1">Last Name</label>
-        <input type="text" formControlName="lastName" class="form-control" id="exampleInputPassword1" placeholder="Doe">
+        <label for="exampleInputFirstName">First Name</label>
+        <input type="text" formControlName="firstName" class="form-control" id="exampleInputfirstName"
+            aria-describedby="emailHelp" placeholder="John">
     </div>
     <div class="form-group">
-        <label for="exampleInputPassword1">Salary</label>
-        <input type="text" formControlName="salary" class="form-control" id="exampleInputPassword1" placeholder="Enter salary">
+        <label for="exampleInputLastName">Last Name</label>
+        <input type="text" formControlName="lastName" class="form-control" id="exampleInputLastName" placeholder="Doe">
     </div>
-    
+    <div class="form-group">
+        <label for="exampleInputSalary">Salary</label>
+        <input type="text" formControlName="salary" class="form-control" id="exampleInputSalary"
+            placeholder="Enter salary">
+    </div>
+
+
 </form>
+
+<button type="button" id="cancel" class="btn btn-secondary" data-dismiss="modal">Close</button>
+<button type="button" (click)="postEmployeeDetails()" class="btn btn-primary">Add</button>
